@@ -1,11 +1,14 @@
-package org.example;
+package org.example.model;
+
+import org.example.GameHistory;
+import org.example.enums.GameStatus;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-public abstract class AbstractGame implements Game {
+public abstract class AbstractGame implements Game, GameHistory {
     abstract List<String> generateCharList();
     private String word;
     private ArrayList<String> history;
@@ -72,6 +75,7 @@ public abstract class AbstractGame implements Game {
         return gameStatus;
     }
 
+    @Override
     public void addHistory(String mes) {
         history.add((new Date()).toString() + ": " + mes);
     }
